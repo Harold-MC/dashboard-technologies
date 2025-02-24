@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS dashboard;
+
+USE dashboard;
+
+CREATE TABLE users (
+    id CHAR(36) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME NOT NULL,
+    PRIMARY KEY(id)
+);
+
+CREATE UNIQUE INDEX UNIQ_8D93D649E7927C74 ON users (email);

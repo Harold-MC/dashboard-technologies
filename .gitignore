@@ -1,0 +1,38 @@
+# Ignorar el directorio de dependencias de Composer
+/vendor/
+
+# Ignorar archivos de configuración de entorno
+.env
+.env.*
+
+# Ignorar archivos de log y caché
+/logs/
+/cache/
+
+# Ignorar directorios generados por frameworks o herramientas
+/node_modules/
+bower_components/
+
+# Ignorar archivos de compilación o temporales
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Ignorar configuraciones de IDEs y editores
+/.idea/
+/.vscode/
+/nbproject/
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de Composer
+composer.lock
+
+# Ignorar archivos específicos de PHPUnit
+/phpunit.xml.dist
+
+.phpunit.result.cache
