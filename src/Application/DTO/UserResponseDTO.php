@@ -6,6 +6,7 @@ class UserResponseDTO
 {
     private string $id;
     private string $email;
+    private string $phone;
     private \DateTimeImmutable $createdAt;
 
     /**
@@ -34,6 +35,11 @@ class UserResponseDTO
         return $this->email;
     }
 
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
@@ -44,6 +50,7 @@ class UserResponseDTO
         return [
             'id'        => $this->id,
             'email'     => $this->email,
+            'phone'     => $this->phone,
             'createdAt' => $this->createdAt->format('Y-m-d H:i:s'),
         ];
     }

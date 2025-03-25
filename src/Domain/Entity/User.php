@@ -6,6 +6,7 @@ use App\Domain\ValueObject\UserId;
 use App\Domain\ValueObject\Name;
 use App\Domain\ValueObject\Email;
 use App\Domain\ValueObject\Password;
+use App\Domain\ValueObject\Phone;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
@@ -18,6 +19,9 @@ class User
 
     #[ORM\Column(type: 'string', length: 100)]
     private string $name;
+
+    #[ORM\Column(type: 'string', length: 12)]
+    private string $phone;
 
     #[ORM\Column(type: 'string', length: 120, unique: true)]
     private string $email;
@@ -32,9 +36,11 @@ class User
         UserId $id,
         Name $name,
         Email $email,
+        Phone $phone,
         Password $password
     ) {
         $this->id = $id->value();
+        $this->phone = $phone->value();
         $this->name = $name->value();
         $this->email = $email->value();
         $this->password = $password->hashed();
@@ -54,6 +60,11 @@ class User
     public function email(): Email
     {
         return new Email($this->email);
+    }
+
+    public function phone(): Phone
+    {
+        return new Phone($this->phone);
     }
 
     public function password(): string

@@ -27,6 +27,7 @@ class RegisterUserController
             $registerUserRequest = new RegisterUserRequest(
                 $requestData['name'] ?? '',
                 $requestData['email'] ?? '',
+                $requestData['phone'] ?? '',
                 $requestData['password'] ?? ''
             );
 
@@ -37,6 +38,7 @@ class RegisterUserController
                 'user' => [
                     'id' => $userResponseDTO->getId(),
                     'email' => $userResponseDTO->getEmail(),
+                    'phone' => $userResponseDTO->getPhone(),
                     'createdAt' => $userResponseDTO->getCreatedAt()->format('Y-m-d H:i:s')
                 ]
             ]);

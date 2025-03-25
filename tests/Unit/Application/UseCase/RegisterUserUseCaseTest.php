@@ -49,7 +49,7 @@ class RegisterUserUseCaseTest extends TestCase
 
         $this->expectException(UserAlreadyExistsException::class);
 
-        $request = new RegisterUserRequest('John Doe', 'john@example.com', 'Secret123!');
+        $request = new RegisterUserRequest('John Doe', 'john@example.com','000-0000-0000', 'Secret123!');
 
         $this->useCase->execute($request);
     }
@@ -69,7 +69,7 @@ class RegisterUserUseCaseTest extends TestCase
             ->method('dispatch')
             ->with($this->isInstanceOf(UserRegisteredEvent::class));
 
-        $request = new RegisterUserRequest('John Doe', 'john@example.com', 'Secret123!');
+        $request = new RegisterUserRequest('John Doe', 'john@example.com','000-0000-0000', 'Secret123!');
 
         $response = $this->useCase->execute($request);
 

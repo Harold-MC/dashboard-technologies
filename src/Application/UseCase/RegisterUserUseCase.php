@@ -12,6 +12,7 @@ use App\Domain\Repository\UserRepositoryInterface;
 use App\Domain\ValueObject\Email;
 use App\Domain\ValueObject\Name;
 use App\Domain\ValueObject\Password;
+use App\Domain\ValueObject\Phone;
 use App\Domain\ValueObject\UserId;
 
 class RegisterUserUseCase
@@ -30,6 +31,7 @@ class RegisterUserUseCase
     public function execute(RegisterUserRequest $request): UserResponseDTO
     {
         $emailVO = new Email($request->getEmail());
+        $phoneVO = new Phone($request->getPhone());
 
         $existingUser = $this->userRepository->findByEmail($emailVO);
         
@@ -43,6 +45,7 @@ class RegisterUserUseCase
             new UserId(),
             new Name($request->getName()),
             $emailVO,
+            $phoneVO,
             new Password($request->getPassword())
         );
 
